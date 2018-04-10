@@ -36,13 +36,6 @@
                                     <segue destination="8Ow-Fs-alH" kind="show" id="62T-r4-Rim"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bulls &amp;  Cows" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tN-AJ-uVt">
-                                <rect key="frame" x="135" y="20" width="104" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Your Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="duY-S9-2gZ">
                                 <rect key="frame" x="16" y="229" width="343" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -66,6 +59,13 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MNP-Jh-fzc">
                                 <rect key="frame" x="16" y="292" width="343" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Bulls &amp;  Cows" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9tN-AJ-uVt">
+                                <rect key="frame" x="16" y="88" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -148,9 +148,9 @@
                                 <rect key="frame" x="16" y="66" width="343" height="552"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <mutableString key="text">The game is simple in practice. This is a two-people game, the game is in rounds. Every person in the beginning must pick a 4-digit number with no repeats from 0-9 as their main number. The opponents mustn’t know their opponent’s main number. First player 1 makes up a new 4-digit number with no repeats from 0-9 as a guess and tells it to player 2, then player 2 replace with cows or bulls or nothing (if there are no cows or bulls). Then player 2 does the same. The process is repeated until one of the opponents guesses the main-number of his opponent. After choosing the main-number, player 1 must start first by entering another 4-digit number from 0-9 whit no repeats. If the entered 4-digit number of Player 1 contains, but it’s not in the same position, one digit form the main-number of Player 2 then player 2 replies with one cow. Example 1. Read. Otherwise if the digit is in the same position Player 2 replies with one bull. There can be more than one cow or bull/ or even cow(s) and bull(s) in a guess. The cows and bulls are used for notification upon which the players experiment with numbers to guess their opponents number (to get 4 bulls).
+                                <string key="text">The game is simple in practice. This is a two-people game, the game is in rounds. Every person in the beginning must pick a 4-digit number with no repeats from 0-9 as their main number. The opponents mustn’t know their opponent’s main number. First player 1 makes up a new 4-digit number with no repeats from 0-9 as a guess and tells it to player 2, then player 2 replace with cows or bulls or nothing (if there are no cows or bulls). Then player 2 does the same. The process is repeated until one of the opponents guesses the main-number of his opponent. After choosing the main-number, player 1 must start first by entering another 4-digit number from 0-9 whit no repeats. If the entered 4-digit number of Player 1 contains, but it’s not in the same position, one digit form the main-number of Player 2 then player 2 replies with one cow. Example 1. Read. Otherwise if the digit is in the same position Player 2 replies with one bull. There can be more than one cow or bull/ or even cow(s) and bull(s) in a guess. The cows and bulls are used for notification upon which the players experiment with numbers to guess their opponents number (to get 4 bulls).
 Example 1: Player 1 enters 1234, but player 2 main-number is 4567. Player 2 says to Player 1 that he has 1 cow.
-Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says to Player 1 that he has 1 bull.</mutableString>
+Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says to Player 1 that he has 1 bull.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -251,6 +251,7 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="gDV-mq-hCR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OY2-6A-zpV">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
