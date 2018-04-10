@@ -61,7 +61,7 @@ io.on('connection', function(clientSocket){
         }
       }
     }
-    var msg = currentPlayer[0] + " suggested " + msgSuggest+'\n'+"Has bulls: " +bulls+ " Cows: " + cows+'\n';
+    var msg = currentPlayer[0] + " suggested " + msgSuggest+'\n'+"Has 🐂 (Bulls): " +bulls+ " 🐄 (Cows): " + cows+'\n';
     if (bulls == 4) {
       msg = currentPlayer[0]+" you win Yay!";
     }
@@ -82,7 +82,7 @@ io.on('connection', function(clientSocket){
         }
       }
     }
-    var msg = currentPlayer[0] + " suggested " + msgSuggest+'\n'+"Has Bulls: " +bulls+ " Cows: " + cows+'\n';
+    var msg = currentPlayer[0] + " suggested " + msgSuggest+'\n'+"Has 🐂 (Bulls): " +bulls+ " 🐄 (Cows): " + cows+'\n';
     if (bulls == 4) {
       msg = currentPlayer[0]+" you win Yay!";
     }
