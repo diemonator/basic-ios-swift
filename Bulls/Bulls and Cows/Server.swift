@@ -11,10 +11,9 @@ import SocketIO
 
 class Server: NSObject {
     
+    static let sharedInstance = Server()
     let manager = SocketManager(socketURL: URL(string: "http://localhost:8080")!, config: [.log(true), .compress])
     var socket: SocketIOClient!
-    var serverPlayer: [String]!
-    var serverList: [String:[AnyObject]]!
     
     override init() {
         super.init()

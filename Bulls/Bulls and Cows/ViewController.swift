@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     }
 
     @IBAction func BtnCreateGame(_ sender: UIButton) {
-        if (tbNumber.text?.count == 4 && checkInput() && (tbName.text?.count)! > 0) {
+        if (Checker.checkInput(number: tbNumber.text!, name: tbName.text!)) {
             playerItems = [tbName.text!, tbNumber.text!]
             performSegue(withIdentifier: "Next", sender: self)
         } else {
@@ -30,28 +30,9 @@ class ViewController: UIViewController {
             self.present(alert, animated: true)
         }
     }
-    
-    func checkInput()-> Bool{
-        var check = Array(tbNumber.text!)
-        for i in 0...tbNumber.text!.count-1 {
-            for j in 0...check.count-1 {
-                if (i != j){
-                    if (check[i] == check[j]){
-                        return false
-                    }
-                }
-            }
-        }
-        return true
-    }
         
     @IBAction func BtnClicked(_ sender: UIButton) {
         playerItems = [tbName.text!, tbNumber.text!]
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -65,5 +46,11 @@ class ViewController: UIViewController {
             vc?.dusha = self.playerItems
         }
     }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+
 }
 

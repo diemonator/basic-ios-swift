@@ -17,6 +17,7 @@
 		83914065206CF07C003C18DC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83914063206CF07C003C18DC /* Main.storyboard */; };
 		83914067206CF07C003C18DC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 83914066206CF07C003C18DC /* Assets.xcassets */; };
 		8391406A206CF07C003C18DC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83914068206CF07C003C18DC /* LaunchScreen.storyboard */; };
+		83948AD5207CD736008A014D /* Checker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83948AD4207CD736008A014D /* Checker.swift */; };
 		83C0398B20761AED0034CB1B /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C0398A20761AED0034CB1B /* Player.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		83914066206CF07C003C18DC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		83914069206CF07C003C18DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8391406B206CF07C003C18DC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		83948AD4207CD736008A014D /* Checker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Checker.swift; sourceTree = "<group>"; };
 		83C0398A20761AED0034CB1B /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		E6F808E77F33157455AA38A3 /* Pods-Bulls and Cows.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Bulls and Cows.release.xcconfig"; path = "Pods/Target Support Files/Pods-Bulls and Cows/Pods-Bulls and Cows.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,15 +92,16 @@
 			isa = PBXGroup;
 			children = (
 				8391405F206CF07C003C18DC /* AppDelegate.swift */,
-				83914061206CF07C003C18DC /* ViewController.swift */,
 				83914063206CF07C003C18DC /* Main.storyboard */,
 				83914066206CF07C003C18DC /* Assets.xcassets */,
 				83914068206CF07C003C18DC /* LaunchScreen.storyboard */,
 				8391406B206CF07C003C18DC /* Info.plist */,
+				83914061206CF07C003C18DC /* ViewController.swift */,
 				83791633206EA08200473557 /* GameViewController.swift */,
 				83791635206EA44F00473557 /* TableTableViewController.swift */,
 				83791639206EB13A00473557 /* Server.swift */,
 				83C0398A20761AED0034CB1B /* Player.swift */,
+				83948AD4207CD736008A014D /* Checker.swift */,
 			);
 			path = "Bulls and Cows";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				83914062206CF07C003C18DC /* ViewController.swift in Sources */,
 				83791634206EA08200473557 /* GameViewController.swift in Sources */,
 				83C0398B20761AED0034CB1B /* Player.swift in Sources */,
+				83948AD5207CD736008A014D /* Checker.swift in Sources */,
 				83914060206CF07C003C18DC /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

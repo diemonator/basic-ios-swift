@@ -26,7 +26,6 @@ class TableTableViewController: UITableViewController {
             if let value = data as? [[String:Any]] {
                 self.getPlayers(players: [value[0]])
             }
-
         }
     }
     

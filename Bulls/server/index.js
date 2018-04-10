@@ -91,10 +91,10 @@ io.on('connection', function(clientSocket){
     io.emit('getSuggestion', msg);
   });
 
-  /*clientSocket.on('disconnect', function(){
+  clientSocket.on('disconnect', function(){
     console.log('user disconnected');
 
-    var info;
+    /*var info;
     for (var i=0; i<userList.length; i++) {
       if (userList[i]["id"] == clientSocket.id) {
         userList[i]["isConnected"] = false;
@@ -102,8 +102,8 @@ io.on('connection', function(clientSocket){
         info[1] = userList[i]["number"];
         break;
       }
-    }
-  });*/
+    }*/
+  });
 
 
   /*clientSocket.on("exitUser", function(clientNickname){

@@ -17,19 +17,19 @@ class GameViewController: UIViewController {
     @IBOutlet weak var tbSuggestion: UITextField!
     @IBOutlet weak var tfInfo: UITextView!
     @IBOutlet weak var btn: UIButton!
+    @IBOutlet weak var otherPlayerStats: UITextView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         addHandlers()
         server.getSocket().emit("connectUser", serverPlayer)
         server.getSocket().emit("setPlayers", serverPlayer)
-        btn.isUserInteractionEnabled = false
-        btn.isEnabled = false
+        disable()
     }
     
-    func addHandlers() {
+    private func addHandlers() {
         server.getSocket().on("setPlayers") { [weak self] data, ack in
-            if let value = data[0] as? Bool {
+            if let value = data.first as? Bool {
                 self?.checkIfFirst(param: value)
             }
         }
@@ -38,7 +38,15 @@ class GameViewController: UIViewController {
         }
         server!.getSocket().on("getSuggestion") { [weak self] data, ack in
             if let value = data.first as? String {
-                self?.tfInfo.text.append(value)
+                if (value.range(of: "win") != nil ) {
+                    self!.btn.setTitle("New Game", for: .normal)
+                    self!.checkIfFirst(param: true)
+                }
+                if (value.range(of: self!.serverPlayer[0]) != nil) {
+                    self?.tfInfo.text.append(value)
+                } else {
+                    self?.otherPlayerStats.text.append(value)
+                }
             }
         }
         server.getSocket().on("rounds") { [weak self] data, ack in
@@ -50,42 +58,27 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func btnSubmit(_ sender: UIButton) {
-        if (tbSuggestion.text?.count == 4 && checkInput()) {
-            server.getSocket().emit("getSuggestion", tbSuggestion.text!)
-            tbSuggestion.text = nil
-            btn.isUserInteractionEnabled = false
-            btn.isEnabled = false
-            server.getSocket().emit("rounds", myTurn)
+        if (btn.titleLabel?.text != "New Game") {
+            if (Checker.checkInput(number: tbSuggestion.text!)) {
+                server.getSocket().emit("getSuggestion", tbSuggestion.text!)
+                tbSuggestion.text = nil
+                disable()
+                server.getSocket().emit("rounds", myTurn)
+            } else {
+                let alert = UIAlertController(title: "Warring?", message: "No repearts in your 4 digit suggestion number", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true)
+            }
         } else {
-            let alert = UIAlertController(title: "Warring?", message: "No repearts in your 4 digit suggestion number", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true)
+            performSegue(withIdentifier: "Back", sender: self)
         }
     }
     
-    func checkInput()-> Bool{
-        var check = Array(tbSuggestion.text!)
-        for i in 0...tbSuggestion.text!.count-1 {
-            for j in 0...check.count-1 {
-                if (i != j){
-                    if (check[i] == check[j]){
-                        return false
-                    }
-                }
-            }
-        }
-        return true
-    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        server.disconnect()
-    }
-    
-    func checkIfFirst(param: Bool) {
+    private func checkIfFirst(param: Bool) {
         if (param == true) {
             btn.isUserInteractionEnabled = true
             btn.isEnabled = true
@@ -93,4 +86,8 @@ class GameViewController: UIViewController {
         myTurn = param
     }
     
+    private func disable() {
+        btn.isUserInteractionEnabled = false
+        btn.isEnabled = false
+    }
 }
