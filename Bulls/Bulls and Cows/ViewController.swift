@@ -7,7 +7,7 @@
 //
 import SocketIO
 import UIKit
-
+import Charts
 
 class ViewController: UIViewController {
     var playerItems: [String]!
