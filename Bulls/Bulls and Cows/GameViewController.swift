@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import AVFoundation
 
 class GameViewController: UIViewController {
     
+    var player: AVAudioPlayer?
     var server: Server!
     var serverPlayer: [String]!
     var myTurn: Bool!
@@ -41,6 +43,7 @@ class GameViewController: UIViewController {
                 if (value.range(of: "win") != nil ) {
                     self!.btn.setTitle("New Game", for: .normal)
                     self!.checkIfFirst(param: true)
+                    self!.playSound(param: "win")
                 }
                 if (value.range(of: self!.serverPlayer[0]) != nil) {
                     self?.tfInfo.text.append(value)
@@ -58,6 +61,7 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func btnSubmit(_ sender: UIButton) {
+        playSound(param: "stairs")
         if (btn.titleLabel?.text != "New Game") {
             if (Checker.checkInput(number: tbSuggestion.text!)) {
                 server.getSocket().emit("getSuggestion", tbSuggestion.text!)
@@ -89,5 +93,20 @@ class GameViewController: UIViewController {
     private func disable() {
         btn.isUserInteractionEnabled = false
         btn.isEnabled = false
+    }
+    
+    private func playSound(param: String) {
+        guard let url = Bundle.main.url(forResource: param, withExtension: "mp3") else { return }
+        
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
+            try AVAudioSession.sharedInstance().setActive(true)
+            player = try AVAudioPlayer(contentsOf: url, fileTypeHint: AVFileType.mp3.rawValue)
+            guard let player = player else { return }
+            player.play()
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
     }
 }
