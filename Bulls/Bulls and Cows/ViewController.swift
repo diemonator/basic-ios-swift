@@ -7,7 +7,6 @@
 //
 import SocketIO
 import UIKit
-import Charts
 
 class ViewController: UIViewController {
     var playerItems: [String]!
@@ -40,10 +39,6 @@ class ViewController: UIViewController {
             let vc = segue.destination as? GameViewController
             vc?.server = self.server
             vc?.serverPlayer = self.playerItems
-        } else if (segue.destination is TableTableViewController) {
-            let vc = segue.destination as? TableTableViewController
-            vc?.server = self.server
-            vc?.dusha = self.playerItems
         }
     }
     

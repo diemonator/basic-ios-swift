@@ -197,34 +197,6 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
             </objects>
             <point key="canvasLocation" x="428" y="875.61576354679812"/>
         </scene>
-        <!--Table Table View Controller-->
-        <scene sceneID="tph-lr-nUH">
-            <objects>
-                <tableViewController id="O11-kn-NKf" customClass="TableTableViewController" customModule="Bulls_and_Cows" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="gDX-yw-Ry0">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="idCellUser" id="Iz6-hl-bnC">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Iz6-hl-bnC" id="1AZ-cQ-dgh">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="O11-kn-NKf" id="B30-6r-5Tl"/>
-                            <outlet property="delegate" destination="O11-kn-NKf" id="QOo-La-DmX"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gKo-nV-F1X" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1106" y="876"/>
-        </scene>
         <!--Game View Controller-->
         <scene sceneID="ZJw-HH-c92">
             <objects>
@@ -286,7 +258,7 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
                         <outlet property="otherPlayerStats" destination="08j-tl-oI5" id="rKH-uS-wgc"/>
                         <outlet property="tbSuggestion" destination="cym-As-F7J" id="C7Q-qV-avq"/>
                         <outlet property="tfInfo" destination="PFv-GR-Yud" id="a1P-Jm-O9U"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="Back" id="dd7-g6-3rR"/>
+                        <segue destination="gDV-mq-hCR" kind="show" identifier="Back" id="5y2-tD-D4m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnR-pa-fjM" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -321,6 +293,5 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="62T-r4-Rim"/>
-        <segue reference="dd7-g6-3rR"/>
     </inferredMetricsTieBreakers>
 </document>

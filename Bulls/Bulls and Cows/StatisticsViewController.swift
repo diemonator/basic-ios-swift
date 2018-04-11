@@ -24,7 +24,7 @@ class StatisticsViewController: UIViewController {
         let data = ["wins": 70, "loses": 30]
         var dataEntries = [PieChartDataEntry]()
         for (key, val) in data {
-            let percent = Double(val) / 100.0
+            let percent = Double(val)
             let entry = PieChartDataEntry(value: percent, label: key)
             dataEntries.append(entry)
         }
