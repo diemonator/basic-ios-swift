@@ -165,9 +165,9 @@
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="5rO-zS-bZN">
                                 <rect key="frame" x="16" y="65.666666666666686" width="382" height="622.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <string key="text">The game is simple in practice. This is a two-people game, the game is in rounds. Every person in the beginning must pick a 4-digit number with no repeats from 0-9 as their main number. The opponents mustn’t know their opponent’s main number. First player 1 makes up a new 4-digit number with no repeats from 0-9 as a guess and tells it to player 2, then player 2 replace with cows or bulls or nothing (if there are no cows or bulls). Then player 2 does the same. The process is repeated until one of the opponents guesses the main-number of his opponent. After choosing the main-number, player 1 must start first by entering another 4-digit number from 0-9 whit no repeats. If the entered 4-digit number of Player 1 contains, but it’s not in the same position, one digit form the main-number of Player 2 then player 2 replies with one cow. Example 1. Read. Otherwise if the digit is in the same position Player 2 replies with one bull. There can be more than one cow or bull/ or even cow(s) and bull(s) in a guess. The cows and bulls are used for notification upon which the players experiment with numbers to guess their opponents number (to get 4 bulls).
+                                <mutableString key="text">The game is simple in practice. This is a two-people game, the game is in rounds. Every person in the beginning must pick a 4-digit number with no repeats from 0-9 as their main number. The opponents mustn’t know their opponent’s main number. First player 1 makes up a new 4-digit number with no repeats from 0-9 as a guess and tells it to player 2, then player 2 replace with cows or bulls or nothing (if there are no cows or bulls). Then player 2 does the same. The process is repeated until one of the opponents guesses the main-number of his opponent. After choosing the main-number, player 1 must start first by entering another 4-digit number from 0-9 whit no repeats. If the entered 4-digit number of Player 1 contains, but it’s not in the same position, one digit form the main-number of Player 2 then player 2 replies with one cow. Example 1. Read. Otherwise if the digit is in the same position Player 2 replies with one bull. There can be more than one cow or bull/ or even cow(s) and bull(s) in a guess. The cows and bulls are used for notification upon which the players experiment with numbers to guess their opponents number (to get 4 bulls).
 Example 1: Player 1 enters 1234, but player 2 main-number is 4567. Player 2 says to Player 1 that he has 1 cow.
-Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says to Player 1 that he has 1 bull.</string>
+Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says to Player 1 that he has 1 bull.</mutableString>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -205,7 +205,7 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-GR-Yud">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PFv-GR-Yud">
                                 <rect key="frame" x="16" y="71" width="382" height="318.66666666666669"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -217,9 +217,10 @@ Example 2: Player 1 enters 1234, but player 2 main-number is 7654. Player 2 says
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="right" translatesAutoresizingMaskIntoConstraints="NO" id="08j-tl-oI5">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="right" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="08j-tl-oI5">
                                 <rect key="frame" x="16" y="397.66666666666674" width="382" height="318.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>

@@ -31,6 +31,9 @@ io.on('connection', function(clientSocket){
       currentPlayer = player1;
     } else { }
     counter++;
+    if (counter == 2) {
+      counter = 0;
+    }
     clientSocket.broadcast.emit('setPlayers', starGame);
   });
 
@@ -106,15 +109,16 @@ io.on('connection', function(clientSocket){
   });
 
 
-  /*clientSocket.on("exitUser", function(clientNickname){
+  clientSocket.on("exitUser", function(){
+    console.log("Deleted");
     for (var i=0; i<userList.length; i++) {
       if (userList[i]["id"] == clientSocket.id) {
         userList.splice(i, 1);
+        console.log("Deleted");
         break;
       }
     }
-    io.emit("userExitUpdate", clientNickname);
-  });*/
+  });
 
   /*clientSocket.on("getOtherPlayer", function(clientNickname){
     
@@ -124,7 +128,7 @@ io.on('connection', function(clientSocket){
   clientSocket.on('connectUser', function(info) {
     var message = "Player " + info[0] + " was connected with number: "+ info[1];
     console.log(message);
-
+    console.log(userList.length);
     var userInfo = {};
     var foundUser = false;
     for (var i=0; i<userList.length; i++) {

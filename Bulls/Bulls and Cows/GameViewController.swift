@@ -15,6 +15,7 @@ class GameViewController: UIViewController {
     var server: Server!
     var serverPlayer: [String]!
     var myTurn: Bool!
+    var win = "win"
     
     @IBOutlet weak var tbSuggestion: UITextField!
     @IBOutlet weak var tfInfo: UITextView!
@@ -40,10 +41,10 @@ class GameViewController: UIViewController {
         }
         server!.getSocket().on("getSuggestion") { [weak self] data, ack in
             if let value = data.first as? String {
-                if (value.range(of: "win") != nil ) {
+                if (value.range(of: self!.win) != nil ) {
                     self!.btn.setTitle("New Game", for: .normal)
                     self!.checkIfFirst(param: true)
-                    self!.playSound(param: "win")
+                    self!.playSound(param: self!.win)
                 }
                 if (value.range(of: self!.serverPlayer[0]) != nil) {
                     self?.tfInfo.text.append(value)
@@ -58,14 +59,17 @@ class GameViewController: UIViewController {
                 self?.checkIfFirst(param: (self?.myTurn)!)
             }
         }
+        server.getSocket().on("exitUser") { data, ack in
+            print("Exiting")
+        }
     }
     
     @IBAction func btnSubmit(_ sender: UIButton) {
-        playSound(param: "stairs")
         if (btn.titleLabel?.text != "New Game") {
             if (Checker.checkInput(number: tbSuggestion.text!)) {
                 server.getSocket().emit("getSuggestion", tbSuggestion.text!)
                 tbSuggestion.text = nil
+                playSound(param: "stairs")
                 disable()
                 server.getSocket().emit("rounds", myTurn)
             } else {
@@ -75,6 +79,8 @@ class GameViewController: UIViewController {
             }
         } else {
             performSegue(withIdentifier: "Back", sender: self)
+            server.getSocket().emit("exitUser", serverPlayer)
+            server.disconnect()
         }
     }
     
