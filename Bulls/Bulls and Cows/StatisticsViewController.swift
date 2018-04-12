@@ -16,12 +16,12 @@ class StatisticsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        populatePieChart()
-        populateBarChart()
+        populatePieChart(wins: 70, losses: 30)
+        populateBarChart(bulls: 12, cows: 4)
     }
     
-    private func populatePieChart() {
-        let data = ["wins": 70, "loses": 30]
+    private func populatePieChart(wins: Int, losses: Int) {
+        let data = ["wins": wins, "losses": losses]
         var dataEntries = [PieChartDataEntry]()
         for (key, val) in data {
             let percent = Double(val)
@@ -34,12 +34,12 @@ class StatisticsViewController: UIViewController {
         chartDataSet.selectionShift = 5
         let chartData = PieChartData(dataSet: chartDataSet)
         pieChart.data = chartData
-        pieChart.centerText = "Win/Lose Ratio"
+        pieChart.centerText = "Win/Losse Ratio"
         pieChart.chartDescription = nil
     }
     
-    private func populateBarChart() {
-        let data = [12, 4]
+    private func populateBarChart(bulls: Int, cows: Int) {
+        let data = [bulls, cows]
         let labels = ["Bulls", "Cows"]
         var bullsEntries: [BarChartDataEntry] = []
         var cowsEntries: [BarChartDataEntry] = []

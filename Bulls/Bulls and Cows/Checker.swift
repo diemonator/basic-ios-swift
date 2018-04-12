@@ -21,6 +21,8 @@ class Checker: NSObject {
                     }
                 }
             }
+        } else {
+            return false
         }
         return true
     }
@@ -37,6 +39,8 @@ class Checker: NSObject {
                     }
                 }
             }
+        } else {
+            return false
         }
         return true
     }

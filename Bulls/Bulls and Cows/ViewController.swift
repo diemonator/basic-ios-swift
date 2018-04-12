@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             playerItems = [tbName.text!, tbNumber.text!]
             performSegue(withIdentifier: "Next", sender: self)
         } else {
-            let alert = UIAlertController(title: "Warring?", message: "No repearts in your 4 digit suggestion number", preferredStyle: .alert)
+            let alert = UIAlertController(title: "Warring?", message: "No repearts in your 4-digit suggestion number", preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(alert, animated: true)
         }
